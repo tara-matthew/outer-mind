@@ -1,5 +1,7 @@
 import Vue from 'nativescript-vue'
 import Register from './components/Register'
+import NewThought from './components/NewThought'
+
 
 
 
@@ -11,5 +13,5 @@ Vue.config.silent = (TNS_ENV === 'production')
 
 new Vue({
 
-  render: h => h('frame', [h(Register)])
+  render: h => h('frame', [h(NewThought)])
 }).$start()
