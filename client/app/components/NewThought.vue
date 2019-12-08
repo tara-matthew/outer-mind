@@ -1,5 +1,7 @@
 <template>
-    <Page actionBarHidden="true" loaded="onPageLoaded">
+    <Page
+        actionBarHidden="true"
+        @loaded="showKeyboard">
         <StackLayout class="form">
 
                 <FlexboxLayout
@@ -30,26 +32,16 @@
                         color="white"
                         paddingLeft="15"
                         paddingRight="15"
-                        borderRadius="10" />
-
-                    <!-- <Label
-                        text="Talk"
-                        class="talk-btn"
-                        height="80"
-                        paddingLeft="15"
-                        paddingRight="15"
                         borderRadius="10"
-                        verticalAlign="top"
-                        borderColor="black"
-                        backgroundColor="black" /> -->
+                        @tap="showKeyboard" />
+
                 </FlexboxLayout>
 
             <StackLayout class="type-text-container">
                 <TextField
                     hint="Type here"
-                    name="confirm-password"
-                    v-model="confirmPassword"
-                    class="input type-text"/>
+                    class="input type-text"
+                    ref="textfieldid"/>
             </StackLayout>
 
         </StackLayout>
@@ -63,6 +55,15 @@
     export default {
         mounted() {
             console.log('mounted')
+            this.$nextTick(() => {
+                const textField = this.$refs.textfieldid.nativeView
+                console.log(textField)
+                textField.focus();
+            })
+        },
+        methods: {
+            showKeyboard () {
+                this.$refs.textfieldid.nativeView.focus()
         }
     }
 </script>
