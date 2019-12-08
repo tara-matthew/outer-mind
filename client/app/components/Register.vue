@@ -120,11 +120,18 @@
 
     .btn-sign-up {
         background-color: #53ba82;
-        color: #ffffff
+        color: #ffffff;
+        margin-top: 0;
+        vertical-align: center;
+
+
     }
 
     .button-container {
-        margin-top: 50;
+        margin-top: 0;
+        height: 100%;
+        vertical-align: center;
+
     }
 
     .input {
